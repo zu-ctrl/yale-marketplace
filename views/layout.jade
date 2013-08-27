@@ -2,8 +2,14 @@ doctype 5
 html(ng-app="myApp")
   head
     title= title
-    link(rel='stylesheet', href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css")
+    link(rel='stylesheet', href="css/bootstrap.min.css")
+    link(rel='stylesheet', href="css/bodyfix.css")
+    link(rel='stylesheet', href="css/bootstrap-responsive.min.css")
     script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js")
-    script(src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.1/underscore-min.js")
+    script(src="/javascripts/bootstrap.min.js")
+    script(src="/javascripts/utils.min.js")
+    script.
+        var myAppModule = angular.module("myApp", []);
+        app = angular.module("myApp", ['ui.bootstrap', 'ui.keypress']);
   body
     block content

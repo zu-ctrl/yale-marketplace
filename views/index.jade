@@ -1,6 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p We got this: #{thething}
+  != css('style')
+  != js('indexlogic')
+  div(ng-controller="DoitCtrl")
+      div(class="navbar navbar-fixed-top")
+        div.navbar-inner
+          div.container
+              a(class="brand hidden-phone", href="#") Do Stuff
+              form(class="navbar-search pull-left")
+                  input(type="text", class="search-query", placeholder="What do you want to do?", ng-model="query")

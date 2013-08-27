@@ -5,7 +5,7 @@ sequelize = new Sequelize('nodetest', 'webby', null, {
 	port: 5432
 })
 
-exports.Project = sequelize.define('Project', {
+exports.Project = sequelize.define('User', {
   title: Sequelize.STRING,
   description: Sequelize.TEXT
 }, {timestamps: false});

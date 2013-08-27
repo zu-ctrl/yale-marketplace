@@ -10,6 +10,10 @@
     "jade": "*",
     "stylus": "*",
     "underscore": "*",
-    "sequelize": "*"
+    "sequelize": "*",
+    "grand_master_cas": "*",
+    "coffee-script": "*",
+    "coffeekup": "*",
+    "connect-assets": "*"
   }
 }
