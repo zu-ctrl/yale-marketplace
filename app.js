@@ -37,7 +37,7 @@ if ('development' == app.get('env')) {
 };
 
 app.get('/', routes.index);
-app.get('/change', routes.list);
+app.get('/change', routes.search);
 
 
 http.createServer(app).listen(app.get('port'), function() {

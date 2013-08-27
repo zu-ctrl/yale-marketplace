@@ -1,13 +1,12 @@
 var model = require('./model');
 
 exports.index = function(req, res) {
-  model.sequelize.query('SELECT * FROM "Projects"', model.Project).success(function(projects) {
-      res.render('index', {
-        title: 'Do it Yale',
-        thelist: projects})})
+  res.render('index');
 };
 
-exports.list = function(req, res) {
-  res.send(JSON.stringify(
-    [{description: 'The book', class: 'cs323', price: '$3'}]))
+exports.search = function(req, res) {
+  model.sequelize.query('SELECT * FROM "Books" sort by createdAt limit 300',
+  	model.Book).success(function(books) {
+  		res.send(JSON.stringify(books))
+  	})
 };
