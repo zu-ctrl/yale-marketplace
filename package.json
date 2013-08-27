@@ -9,11 +9,9 @@
     "express": "3.3.5",
     "jade": "*",
     "stylus": "*",
-    "underscore": "*",
     "sequelize": "*",
     "grand_master_cas": "*",
     "coffee-script": "*",
-    "coffeekup": "*",
     "connect-assets": "*"
   }
 }

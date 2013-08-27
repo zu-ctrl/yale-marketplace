@@ -1,3 +1,2 @@
-app.controller 'DoitCtrl',
-  class DoitCtrl
-  	thingy = 1
+DoitCtrl = ($scope)->
+  	$scope.thingy = 1

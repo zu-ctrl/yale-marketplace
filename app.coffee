@@ -27,27 +27,19 @@ app.use(app.router)
 app.use require('connect-assets')()
 app.use(express.static(path.join(__dirname, 'public')))
 
-# app.use(require('stylus').middleware(__dirname + '/client-css'))
-# app.use(express.static(path.join(__dirname, 'public')))
-# app.use(require('coffee-middleware')({
-#         src: __dirname + '/client-js',
-#         compress: true
-#     }))
-
 # auth using cas
-# cas.configure({
-#   casHost: "secure.its.yale.edu",
-#   casPath: "/cas",
-#   ssl: true,
-#   service: "http://localhost:3000"
-# })
+cas.configure({
+  casHost: "secure.its.yale.edu",
+  casPath: "/cas",
+  ssl: true,
+  service: "http://localhost:3000"
+})
 
 # development only
 if 'development' == app.get('env')
   app.use(express.errorHandler())
 
-# app.get('/', cas.bouncer, routes.index)
-app.get('/', routes.index)
+app.get('/', cas.bouncer, routes.index)
 
 http.createServer(app).listen(app.get('port'), ->
   console.log('Express server listening on port ' + app.get('port')))
