@@ -1,4 +1,4 @@
-var model = require('./model');
+var b = require('./model/books');
 
 exports.index = function(req, res) {
   res.render('index');
@@ -9,7 +9,7 @@ exports.booksearch = function(req, res) {
   	res.send(JSON.stringify(data));
   };
   if (!req.query.q) {
-  	model.Book.findAll({
+  	b.Book.findAll({
   		order: '"createdAt" DESC',
   		limit: 300
   	}).success(apiReturn);
@@ -18,10 +18,10 @@ exports.booksearch = function(req, res) {
 	var separator = /(.+?)( [^ ]+)?$/;
 	var results = separator.exec(q);
 	if (results[2]) {
-		model.sequelize.query("select * FROM searchquery(plainto_tsquery('english', ?) || to_tsquery(?))", 
-		model.Book, null, [results[1], results[2] + ':*']).success(apiReturn);
+		b.sequelize.query("select * FROM searchquery(plainto_tsquery('english', ?) || to_tsquery(?))", 
+		b.Book, null, [results[1], results[2] + ':*']).success(apiReturn);
     } else {
-    	model.sequelize.query("select * FROM searchquery(to_tsquery(?))", model.Book, null,
+    	b.sequelize.query("select * FROM searchquery(to_tsquery(?))", b.Book, null,
     	[results[1] + ':*', q]).success(apiReturn);
     };
   };

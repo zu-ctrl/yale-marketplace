@@ -1,6 +1,6 @@
 function DoitCtrl ($scope, $http) {
 	$scope.change = function () {
-		$http.get('change', {params: {q : $scope.query}}).success(function(data){
+		$http.get('books', {params: {q : $scope.query}}).success(function(data){
 			$scope.items = data});
 	}
 	
