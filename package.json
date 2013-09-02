@@ -9,6 +9,8 @@
     "express": "3.3.5",
     "jade": "*",
     "sequelize": "*",
-    "grand_master_cas": "*"
+    "grand_master_cas": "*",
+    "node-curl": "*",
+    "pg": "*"
   }
 }

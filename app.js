@@ -1,7 +1,7 @@
 // Module dependencies
-var express = require('express');
-var routes = require('./routes');
 var model = require('./model');
+var express = require('express');
+var handlers = require('./handlers');
 var http = require('http');
 var path = require('path');
 var cas = require('grand_master_cas');
@@ -36,9 +36,8 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler())
 };
 
-app.get('/', routes.index);
-app.get('/change', routes.search);
-
+app.get('/', handlers.index);
+app.get('/change', handlers.booksearch);
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'))});

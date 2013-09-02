@@ -26,9 +26,9 @@ block content
         table(class="table table-striped")
             tr(ng-repeat="item in items")
                 td
-                    b {{item.description}}
-                td {{item.class}}
-                td {{item.price}}
+                    b {{item.title}}
+                td {{item.author}}
+                td {{item.course}}
 
 block csscontent
     link(rel='stylesheet', href="css/style.css")
